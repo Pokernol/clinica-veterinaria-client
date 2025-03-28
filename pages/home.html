@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Clínica Veterinária - Home</title>
+        <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../assets/css/styles.css" />
+    </head>
+    <body>
+        <div id="navbar-placeholder"></div>
+
+        <div class="container">
+            <h1>Bem-vindo à Clínica Veterinária</h1>
+            <p>
+                Gerencie seus pets e agende consultas de forma fácil e rápida.
+            </p>
+
+            <div class="features">
+                <h2>Funcionalidades</h2>
+                <ul>
+                    <li>Cadastro de usuários e pets</li>
+                    <li>Agendamento de consultas</li>
+                    <li>Controle de receitas e medicamentos</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="footer-placeholder"></div>
+
+        <script src="../assets/js/jquery-3.7.1.min.js"></script>
+        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/js/navbar.js"></script>
+        <script src="../assets/js/main.js"></script>
+        <script>
+            $(function () {
+                $("#navbar-placeholder").load("../components/navbar.html");
+                $("#footer-placeholder").load("../components/footer.html");
+            });
+        </script>
+    </body>
+</html>
