@@ -57,8 +57,16 @@ Este é o front-end para a aplicação de gerenciamento de uma clínica veterin�
    git clone https://github.com/Pokernol/clinica-veterinaria.git
    ```
 
-2. Abra o arquivo `index.html` em um navegador
-3. Certifique-se de que os arquivos **CSS** e **JS** estão carregando corretamente
+2. Baixe o arquivo **jQuery** e coloque na pasta **assets/js**
+
+    [https://code.jquery.com/jquery-3.7.1.min.js](https://code.jquery.com/jquery-3.7.1.min.js)
+
+3. Baixe o arquivo **Bootstrap** e coloque na pasta **assets/css** e no **assets/js**: Diferente do **jQuery**, o **Bootstrap** possui 2 arquivos, são eles o `bootstrap.min.css` e o `bootstrap.bundle.min.js`.
+
+    [https://getbootstrap.com/docs/5.3/getting-started/download/](https://getbootstrap.com/docs/5.3/getting-started/download/)
+
+4. Abra o arquivo `index.html` em um navegador
+5. Certifique-se de que os arquivos **CSS** e **JS** estão carregando corretamente
 
 ## 📌 Próximos Passos
 
