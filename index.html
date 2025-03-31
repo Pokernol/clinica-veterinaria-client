@@ -4,35 +4,35 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Clínica Veterinária</title>
-
-        <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
         <link rel="stylesheet" href="assets/css/styles.css" />
     </head>
     <body>
-        <header>
-            <div id="navbar-placeholder"></div>
-        </header>
+        <div id="navbar"></div>
 
         <main class="container">
             <h1>Bem-vindo à Clínica Veterinária</h1>
-            <p>Gerencie seus pets e consultas de forma fácil e rápida.</p>
+            <p>
+                Gerencie seus pets e agende consultas de forma fácil e rápida.
+            </p>
+
+            <div class="features">
+                <h2>Funcionalidades</h2>
+                <ul>
+                    <li>Cadastro de usuários e pets</li>
+                    <li>Agendamento de consultas</li>
+                    <li>Controle de receitas e medicamentos</li>
+                </ul>
+            </div>
         </main>
 
-        <footer>
-            <div id="footer-placeholder"></div>
-        </footer>
-        <!-- Jquery and Bootstrap JS -->
+        <div id="footer"></div>
+        
+        <script src="../components/navbar.js"></script>
+        <script src="../components/footer.js"></script>
         <script src="assets/js/jquery-3.7.1.min.js"></script>
-
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
         <script src="assets/js/main.js" defer></script>
-        <script src="assets/js/navbar.js" defer></script>
         <script src="assets/js/router.js" defer></script>
-        <script>
-            $(function () {
-                $("#navbar-placeholder").load("components/navbar.html");
-                $("#footer-placeholder").load("components/footer.html");
-            });
-        </script>
     </body>
 </html>
