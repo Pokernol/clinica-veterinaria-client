@@ -1,4 +1,4 @@
-html, body {
+html, body { 
     height: 100%;
     margin: 0;
     display: flex;
@@ -6,11 +6,56 @@ html, body {
 }
 
 .container {
-    flex: 1; /* Faz o conteúdo ocupar o espaço disponível */
+    flex: 1;
 }
 
 footer {
-    background-color: #f8f9fa; /* Opcional: cor de fundo para destacar */
+    background-color: #f8f9fa;
     padding: 15px 0;
     text-align: center;
+}
+
+.nav-item .nav-link {
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-item .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.custom-card {
+    width: 250px;
+    border-radius: 12px;
+    color: white;
+    background-color: #6d2a3a;
+}
+
+.custom-card-white {
+    width: 250px;
+    border-radius: 12px;
+    color:#0dcaf0;
+    background-color: #f8f9fa;
+}
+
+@media (max-width: 991px) {
+    #offcanvasNavbar {
+        max-width: 250px !important;
+    }
+
+    .offcanvas .nav-item .nav-link {
+        display: block;
+        padding: 12px;
+        width: 100%;
+        color: white;
+        text-align: left;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .offcanvas .nav-item .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+    }
 }

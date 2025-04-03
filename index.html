@@ -1,38 +1,64 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Clínica Veterinária</title>
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="assets/css/styles.css" />
-    </head>
-    <body>
-        <div id="navbar"></div>
 
-        <main class="container">
-            <h1>Bem-vindo à Clínica Veterinária</h1>
-            <p>
-                Gerencie seus pets e agende consultas de forma fácil e rápida.
-            </p>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon" />
+    <title>Clínica Veterinária</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
 
-            <div class="features">
-                <h2>Funcionalidades</h2>
-                <ul>
-                    <li>Cadastro de usuários e pets</li>
-                    <li>Agendamento de consultas</li>
-                    <li>Controle de receitas e medicamentos</li>
-                </ul>
+<body>
+    <div id="navbar"></div>
+
+    <main class="container mt-4">
+        <div class="banner position-relative text-center text-white py-5"
+            style="background: url('assets/img/...') center/cover no-repeat;">
+            <div class="overlay position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+            <div class="content position-relative">
+                <h2 class="fw-bold">Cuidamos bem do seu pet, para ele cuidar bem de você.</h2>
+                <p class="fs-5">#SeresQueCuidam</p>
             </div>
-        </main>
+        </div>
 
-        <div id="footer"></div>
-        
-        <script src="../components/navbar.js"></script>
-        <script src="../components/footer.js"></script>
-        <script src="assets/js/jquery-3.7.1.min.js"></script>
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/js/main.js" defer></script>
-        <script src="assets/js/router.js" defer></script>
-    </body>
+        <section class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+            <a href="#" class="card d-flex align-items-center text-center p-3 shadow-lg custom-card">
+                <img src="assets/img/calendar.svg" alt="Calendário" class="mb-2" width="50px" height="50px" />
+                <h5 class="mt-2">Agendamento Consulta/Vacina</h5>
+            </a>
+
+            <a href="#" class="card d-flex align-items-center text-center p-3 shadow-lg custom-card-white">
+                <span class="badge bg-warning position-absolute"
+                    style="height: 25px;top: -10px; right: 210px;">Novo!</span>
+                <img src="assets/img/seringa.svg" alt="seringa" class="mb-2" width="50px" height="50px" />
+                <h5 class="mt-2 text-info">Resultado de Exames</h5>
+            </a>
+
+            <a href="#" class="card d-flex align-items-center text-center p-3 shadow-lg custom-card-white">
+                <img src="assets/img/dog.svg" alt="pet" class="mb-2" width="50px" height="50px" />
+                <h5 class="mt-2 text-info">Cadastre seu pet</h5>
+            </a>
+
+            <a href="#" class="card d-flex align-items-center text-center p-3 shadow-lg custom-card-white">
+                <h5 class="mt-2 text-info">Quem Somos</h5>
+            </a>
+
+            <a href="#" class="card d-flex align-items-center text-center p-3 shadow-lg custom-card-white">
+                <h5 class="mt-2 text-secondary">Fale Conosco</h5>
+            </a>
+        </section>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="../components/navbar.js"></script>
+    <script src="../components/footer.js"></script>
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/router.js" defer></script>
+</body>
+
 </html>
