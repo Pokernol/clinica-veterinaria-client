@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
         { href: "/", label: "Início" },
         { href: "/pages/dashboard.html", label: "Dashboard" },
         { href: "/pages/consultas.html", label: "Consultas" },
-        { href: "/pages/pets.html", label: "Pets" },
-        { href: "/pages/users.html", label: "Usuários" }
+        { href: "/pages/pet.html", label: "Pets" },
+        { href: "/pages/users.html", label: "Usuários" },
     ];
 
     const dropdownActions = [
@@ -15,22 +15,32 @@ document.addEventListener("DOMContentLoaded", function () {
         { divider: true },
         { href: "#", label: "Cadastrar" },
         { href: "/pages/login.html", label: "Login" },
-        { href: "#", label: "Deslogar" }
+        { href: "#", label: "Deslogar" },
     ];
 
-    const navLinksHTML = links.map(link => `
+    const navLinksHTML = links
+        .map(
+            (link) => `
         <li class="nav-item ps-2">
-            <a href="${link.href}" class="nav-link ${currentPath.endsWith(link.href) ? 'text-secondary' : 'text-white'}">
+            <a href="${link.href}" class="nav-link ${
+                currentPath.endsWith(link.href)
+                    ? "text-secondary"
+                    : "text-white"
+            }">
                 ${link.label}
             </a>
         </li>
-    `).join("");
+    `
+        )
+        .join("");
 
-    const dropdownHTML = dropdownActions.map(action =>
-        action?.divider
-            ? `<li><hr class="dropdown-divider" /></li>`
-            : `<li><a class="dropdown-item" href="${action.href}">${action.label}</a></li>`
-    ).join("");
+    const dropdownHTML = dropdownActions
+        .map((action) =>
+            action?.divider
+                ? `<li><hr class="dropdown-divider" /></li>`
+                : `<li><a class="dropdown-item" href="${action.href}">${action.label}</a></li>`
+        )
+        .join("");
 
     const navbarHTML = `
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

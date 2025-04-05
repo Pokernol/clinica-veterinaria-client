@@ -1,49 +1,57 @@
-// This file is responsible for the registration and management of pets within the system.
+// api/pet.js
 
-const pets = [];
+// Utilitário para carregar e salvar no localStorage
+function carregarPets() {
+    return JSON.parse(localStorage.getItem("pets")) || [];
+}
 
-// Function to register a new pet
+function salvarPets(pets) {
+    localStorage.setItem("pets", JSON.stringify(pets));
+}
+
+// Função para registrar um novo pet
 function registerPet(pet) {
+    const pets = carregarPets();
     pets.push(pet);
-    return { message: "Pet registered successfully", pet };
+    salvarPets(pets);
+    return { message: "Pet registrado com sucesso", pet };
 }
 
-// Function to get all pets
+// Função para obter todos os pets
 function getAllPets() {
-    return pets;
+    return carregarPets();
 }
 
-// Function to get a pet by ID
+// Função para obter um pet por ID
 function getPetById(id) {
-    const pet = pets.find(p => p.id === id);
-    return pet ? pet : { message: "Pet not found" };
+    const pets = carregarPets();
+    const pet = pets.find((p) => p.id === id);
+    return pet ? pet : { message: "Pet não encontrado" };
 }
 
-// Function to update a pet's information
+// Função para atualizar um pet
 function updatePet(id, updatedPet) {
-    const index = pets.findIndex(p => p.id === id);
+    const pets = carregarPets();
+    const index = pets.findIndex((p) => p.id === id);
     if (index !== -1) {
         pets[index] = { ...pets[index], ...updatedPet };
-        return { message: "Pet updated successfully", pet: pets[index] };
+        salvarPets(pets);
+        return { message: "Pet atualizado com sucesso", pet: pets[index] };
     }
-    return { message: "Pet not found" };
+    return { message: "Pet não encontrado" };
 }
 
-// Function to delete a pet
+// Função para deletar um pet
 function deletePet(id) {
-    const index = pets.findIndex(p => p.id === id);
+    const pets = carregarPets();
+    const index = pets.findIndex((p) => p.id === id);
     if (index !== -1) {
         pets.splice(index, 1);
-        return { message: "Pet deleted successfully" };
+        salvarPets(pets);
+        return { message: "Pet deletado com sucesso" };
     }
-    return { message: "Pet not found" };
+    return { message: "Pet não encontrado" };
 }
 
-// Exporting the functions for use in other modules
-module.exports = {
-    registerPet,
-    getAllPets,
-    getPetById,
-    updatePet,
-    deletePet
-};
+// Exportando as funções
+export { registerPet, getAllPets, getPetById, updatePet, deletePet };

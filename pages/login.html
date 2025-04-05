@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../assets/css/styles.css" />
 </head>
+
 <body>
     <header>
         <div id="navbar"></div>
@@ -19,11 +21,13 @@
             <form id="loginForm">
                 <div class="mb-3">
                     <label for="email" class="form-label">Email:</label>
-                    <input type="email" class="form-control" id="email" placeholder="exemplo@dominio.com" required maxlength="50">
+                    <input type="email" class="form-control" id="email" placeholder="exemplo@dominio.com" required
+                        maxlength="50">
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Senha:</label>
-                    <input type="password" class="form-control" id="password" placeholder="Digite sua senha" required minlength="8" maxlength="20">
+                    <input type="password" class="form-control" id="password" placeholder="Digite sua senha" required
+                        minlength="8" maxlength="20">
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Entrar</button>
             </form>
@@ -36,9 +40,9 @@
     <div id="modal"></div>
     <div id="footer"></div>
 
-    <script src="../components/navbar.js"></script>
-    <script src="../components/footer.js"></script>
-    <script src="../components/modal.js"></script>
+    <script src="../components/generics/navbar.js"></script>
+    <script src="../components/generics/footer.js"></script>
+    <script src="../components/generics/modal.js"></script>
     <script src="../assets/js/jquery-3.7.1.min.js"></script>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/main.js"></script>
@@ -51,21 +55,21 @@
                 '<input type="email" class="form-control" id="forgotPasswordEmail" placeholder="Digite seu email" required>';
             const buttonModal = "Enviar";
             const callbackModal = function () {
-                    const emailInput = document.getElementById("forgotPasswordEmail");
-                    const email = emailInput.value;
-                    if (email) {
-                        document.getElementById("loadingSpinner").style.display = "block";
-                        setTimeout(() => {
-                            document.getElementById("loadingSpinner").style.display = "none";
-                            alert("Link de recuperação enviado para: " + email);
-                        }, 2000);
-                    }
-                };
-                const initCallback = function () {
+                const emailInput = document.getElementById("forgotPasswordEmail");
+                const email = emailInput.value;
+                if (email) {
+                    document.getElementById("loadingSpinner").style.display = "block";
                     setTimeout(() => {
-                            document.getElementById("forgotPasswordEmail").focus();
-                    }, 500);
-                };
+                        document.getElementById("loadingSpinner").style.display = "none";
+                        alert("Link de recuperação enviado para: " + email);
+                    }, 2000);
+                }
+            };
+            const initCallback = function () {
+                setTimeout(() => {
+                    document.getElementById("forgotPasswordEmail").focus();
+                }, 500);
+            };
 
             showModal(
                 titleModal,
@@ -77,4 +81,5 @@
         });
     </script>
 </body>
+
 </html>
