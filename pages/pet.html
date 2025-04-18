@@ -1,57 +1,63 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon" />
+    <title>Cadastro de Pet</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon" />
-  <title>Cadastro de Pet</title>
-  <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="../assets/css/styles.css" />
-</head>
+  <body>
+    <div id="navbar"></div>
 
-<body>
-  <div id="navbar"></div>
-
-  <main class="container-fluid mt-4">
-    <div class="row">
-      <div class="col-md-12">
-        <h1 class="text-center">Controle de Pets</h1>
-        <p class="text-center">
-          Aqui você pode cadastrar, visualizar e gerenciar os pets da sua conta.
-          <br />
-          Utilize as abas abaixo para navegar entre as opções disponíveis.
-        </p>
+    <main class="container-fluid mt-4">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="text-center">Controle de Pets</h1>
+          <p class="text-center">
+            Aqui você pode cadastrar, visualizar e gerenciar os pets da sua
+            conta.
+            <br />
+            Utilize as abas abaixo para navegar entre as opções disponíveis.
+          </p>
+        </div>
+        <div id="tabs"></div>
       </div>
-      <div id="tabs"></div>
-    </div>
-  </main>
+    </main>
 
-  <div id="footer"></div>
+    <div id="footer"></div>
 
-  <script type="module" src="../components/generics/tabs.js"></script>
-  <script type="module" src="../components/pet/controlePets.js"></script>
-  <script type="module" src="../api/pets.js"></script>
-  <script type="module" src="../components/generics/navbar.js"></script>
-  <script type="module" src="../components/generics/footer.js"></script>
-  <script src="../assets/js/jquery-3.7.1.min.js"></script>
-  <script src="../assets/js/bootstrap.bundle.min.js"></script>
-  <script type="module" src="../assets/js/main.js"></script>
-  <script type="module" src="../assets/js/router.js"></script>
+    <script type="module" src="../components/generics/tabs.js"></script>
+    <script type="module" src="../components/pet/controlePets.js"></script>
+    <script type="module" src="../api/pets.js"></script>
+    <script type="module" src="../components/generics/navbar.js"></script>
+    <script type="module" src="../components/generics/footer.js"></script>
+    <script src="../assets/js/jquery-3.7.1.min.js"></script>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../assets/js/main.js"></script>
+    <script type="module" src="../assets/js/router.js"></script>
 
-  <script type="module">
-    import { showTabs } from "../components/generics/tabs.js";
-    import { mostrarPets, mostrarFormulario } from "../components/pet/controlePets.js";
+    <script type="module">
+      import { showTabs } from '../components/generics/tabs.js';
+      import {
+        mostrarPets,
+        mostrarFormulario,
+      } from '../components/pet/controlePets.js';
 
-    document.addEventListener("DOMContentLoaded", function () {
-      const abas = [
-        { id: "lista", label: "🐶 Pets Cadastrados", callback: mostrarPets },
-        { id: "cadastro", label: "➕ Cadastrar Pet", callback: mostrarFormulario },
-      ];
+      document.addEventListener('DOMContentLoaded', function () {
+        const abas = [
+          { id: 'lista', label: '🐶 Pets Cadastrados', callback: mostrarPets },
+          {
+            id: 'cadastro',
+            label: '➕ Cadastrar Pet',
+            callback: mostrarFormulario,
+          },
+        ];
 
-      showTabs(abas);
-    });
-  </script>
-</body>
-
+        showTabs(abas);
+      });
+    </script>
+  </body>
 </html>
