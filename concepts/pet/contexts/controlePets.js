@@ -1,15 +1,11 @@
-// Importando as funções da API que usam localStorage
 import {
   deletePet,
   getAllPets,
   getPetById,
   registerPet,
   updatePet,
-} from '../../api/pets.js';
+} from '../../../api/pets.js';
 
-/**
- * Exibe a lista de pets cadastrados
- */
 export function mostrarPets() {
   const pets = getAllPets();
   let html = '';
@@ -55,25 +51,37 @@ export function mostrarFormulario(pet = {}, petId = null) {
     <form id="petForm">
       <input type="hidden" id="petId" value="${petId || ''}">
       <div class="mb-3">
-        <label class="form-label">Nome do Pet</label>
+        <label class="form-label">Nome do Pet *</label>
         <input type="text" class="form-control" id="nome" value="${
           pet.nome || ''
         }" required>
       </div>
       <div class="mb-3">
-        <label class="form-label">Tipo (ex: cachorro, gato)</label>
+        <label class="form-label">Tipo (ex: cachorro, gato) *</label>
         <input type="text" class="form-control" id="tipo" value="${
           pet.tipo || ''
         }" required>
       </div>
       <div class="mb-3">
-        <label class="form-label">Idade (em anos)</label>
+        <label class="form-label">Espécie (ex: mamífero, ave)</label>
+        <input type="text" class="form-control" id="tipo" value="${
+          pet.especie || ''
+        }">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Raça (ex: bulldog, siamês)</label>
+        <input type="text" class="form-control" id="tipo" value="${
+          pet.raca || ''
+        }">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Idade (em anos) *</label>
         <input type="number" class="form-control" id="idade" value="${
           pet.idade || ''
         }" required>
       </div>
       <div class="mb-3">
-        <label class="form-label">Nome do Dono</label>
+        <label class="form-label">Nome do Dono *</label>
         <input type="text" class="form-control" id="dono" value="${
           pet.dono || ''
         }" required>
@@ -115,26 +123,27 @@ export function salvarPet(e) {
   const petId = document.getElementById('petId').value;
   const nome = document.getElementById('nome').value;
   const tipo = document.getElementById('tipo').value;
+  const especie = document.getElementById('especie').value;
+  const raca = document.getElementById('raca').value;
   const idade = parseInt(document.getElementById('idade').value);
   const dono = document.getElementById('dono').value;
 
   const petData = {
     nome,
     tipo,
+    especie,
+    raca,
     idade,
     dono,
   };
 
   if (petId) {
-    // Atualizando um pet existente
     updatePet(petId, petData);
   } else {
-    // Registrando um novo pet
-    petData.id = crypto.randomUUID(); // Gera um ID único
+    petData.id = crypto.randomUUID();
     registerPet(petData);
   }
 
-  // Volta para a lista de pets
   mostrarPets();
   document.querySelector('.nav-link[data-id="lista"]').classList.add('active');
   document
@@ -179,7 +188,6 @@ export function trocarParaCadastro() {
   document.querySelector('.nav-link[data-id="cadastro"]').click();
 }
 
-// Exporta as funções para o escopo global para funcionar com os event handlers inline
 window.trocarParaCadastro = trocarParaCadastro;
 window.editarPet = editarPet;
 window.excluirPet = excluirPet;

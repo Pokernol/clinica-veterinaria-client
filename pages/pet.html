@@ -29,22 +29,19 @@
 
     <div id="footer"></div>
 
-    <script type="module" src="../components/generics/tabs.js"></script>
-    <script type="module" src="../components/pet/controlePets.js"></script>
-    <script type="module" src="../api/pets.js"></script>
-    <script type="module" src="../components/generics/navbar.js"></script>
-    <script type="module" src="../components/generics/footer.js"></script>
+    <script type="module" src="../routers/router.js"></script>
+    <script type="module" src="../main.js"></script>
+    <script type="module" src="../concepts/navegacao/navbar.js"></script>
+    <script type="module" src="../concepts/footer/footer.js"></script>
     <script src="../assets/js/jquery-3.7.1.min.js"></script>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="../assets/js/main.js"></script>
-    <script type="module" src="../assets/js/router.js"></script>
 
     <script type="module">
-      import { showTabs } from '../components/generics/tabs.js';
+      import { showTabs } from '../concepts/generics/components/tabs.js';
       import {
         mostrarPets,
         mostrarFormulario,
-      } from '../components/pet/controlePets.js';
+      } from '../concepts/pet/contexts/controlePets.js';
 
       document.addEventListener('DOMContentLoaded', function () {
         const abas = [

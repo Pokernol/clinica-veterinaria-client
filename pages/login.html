@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon" />
     <title>Clínica Veterinária - Login</title>
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../assets/css/styles.css" />
@@ -54,12 +54,16 @@
     <div id="modal"></div>
     <div id="footer"></div>
 
-    <script src="../components/generics/navbar.js"></script>
-    <script src="../components/generics/footer.js"></script>
-    <script src="../components/generics/modal.js"></script>
+    <script type="module" src="../routers/router.js"></script>
+    <script type="module" src="../main.js"></script>
+    <script type="module" src="../concepts/navegacao/navbar.js"></script>
+    <script
+      type="module"
+      src="../concepts/generics/components/modal.js"
+    ></script>
+    <script type="module" src="../concepts/footer/footer.js"></script>
     <script src="../assets/js/jquery-3.7.1.min.js"></script>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/js/main.js"></script>
 
     <script>
       document

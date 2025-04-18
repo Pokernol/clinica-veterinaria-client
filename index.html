@@ -13,8 +13,6 @@
     <div id="navbar"></div>
 
     <main class="container-fluid mt-4">
-      <!-- Atualização nos carrosseis -->
-      <!-- Primeiro Carrossel -->
       <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button
@@ -126,7 +124,7 @@
         </button>
       </div>
 
-      <section class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+      <!-- <section class="d-flex flex-wrap justify-content-center gap-3 mt-4">
         <a
           href="#"
           class="card d-flex align-items-center text-center p-3 shadow-lg custom-card"
@@ -221,16 +219,24 @@
           />
           <h5 class="mt-2 text-info">Fale Conosco</h5>
         </a>
-      </section>
+      </section> -->
+      <section
+        class="d-flex flex-wrap justify-content-center gap-3 mt-4"
+        id="cardLinksLandingPage"
+      ></section>
     </main>
 
     <div id="footer"></div>
 
-    <script src="components/generics/navbar.js"></script>
-    <script src="components/generics/footer.js"></script>
+    <script type="module" src="routers/router.js" defer></script>
+    <script type="module" src="main.js" defer></script>
+    <script type="module" src="concepts/navegacao/navbar.js"></script>
+    <script
+      type="module"
+      src="concepts/generics/components/cardLink.js"
+    ></script>
+    <script type="module" src="concepts/footer/footer.js"></script>
     <script src="assets/js/jquery-3.7.1.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/main.js" defer></script>
-    <script src="assets/js/router.js" defer></script>
   </body>
 </html>
