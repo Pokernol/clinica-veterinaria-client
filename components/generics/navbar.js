@@ -4,18 +4,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const links = [
         { href: "/", label: "Início" },
         { href: "/pages/dashboard.html", label: "Dashboard" },
-        { href: "/pages/consultas.html", label: "Consultas" },
+        // { href: "/pages/consultas.html", label: "Consultas" },
         { href: "/pages/pet.html", label: "Pets" },
-        { href: "/pages/users.html", label: "Usuários" },
+        // { href: "/pages/users.html", label: "Usuários" },
     ];
 
     const dropdownActions = [
-        { href: "#", label: "Settings" },
-        { href: "#", label: "Profile" },
-        { divider: true },
-        { href: "#", label: "Cadastrar" },
+        // { href: "#", label: "Settings" },
+        // { href: "#", label: "Profile" },
+        // { divider: true },
+        // { href: "#", label: "Cadastrar" },
         { href: "/pages/login.html", label: "Login" },
-        { href: "#", label: "Deslogar" },
+        // { href: "#", label: "Deslogar" },
     ];
 
     const navLinksHTML = links

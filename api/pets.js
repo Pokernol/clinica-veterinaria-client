@@ -1,4 +1,4 @@
-// api/pet.js
+// api/pets.js
 
 // Utilitário para carregar e salvar no localStorage
 function carregarPets() {
@@ -10,7 +10,7 @@ function salvarPets(pets) {
 }
 
 // Função para registrar um novo pet
-function registerPet(pet) {
+export function registerPet(pet) {
     const pets = carregarPets();
     pets.push(pet);
     salvarPets(pets);
@@ -18,19 +18,19 @@ function registerPet(pet) {
 }
 
 // Função para obter todos os pets
-function getAllPets() {
+export function getAllPets() {
     return carregarPets();
 }
 
 // Função para obter um pet por ID
-function getPetById(id) {
+export function getPetById(id) {
     const pets = carregarPets();
     const pet = pets.find((p) => p.id === id);
     return pet ? pet : { message: "Pet não encontrado" };
 }
 
 // Função para atualizar um pet
-function updatePet(id, updatedPet) {
+export function updatePet(id, updatedPet) {
     const pets = carregarPets();
     const index = pets.findIndex((p) => p.id === id);
     if (index !== -1) {
@@ -42,7 +42,7 @@ function updatePet(id, updatedPet) {
 }
 
 // Função para deletar um pet
-function deletePet(id) {
+export function deletePet(id) {
     const pets = carregarPets();
     const index = pets.findIndex((p) => p.id === id);
     if (index !== -1) {
@@ -52,6 +52,3 @@ function deletePet(id) {
     }
     return { message: "Pet não encontrado" };
 }
-
-// Exportando as funções
-export { registerPet, getAllPets, getPetById, updatePet, deletePet };

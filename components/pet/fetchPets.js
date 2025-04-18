@@ -1,6 +1,6 @@
 import { getAllPets } from "../../api/pets";
 
-function mostrarPets() {
+export function mostrarPets() {
     const pets = getAllPets();
     let html = "";
 
@@ -32,4 +32,20 @@ function mostrarPets() {
     }
 
     document.getElementById("area-troca").innerHTML = html;
+}
+
+// Função que será chamada para editar um pet
+export function editarPet(index) {
+    const pet = getAllPets()[index];
+    mostrarFormulario(pet, index);
+    document.querySelector(".nav-link:nth-child(2)").classList.add("active");
+    document.querySelector(".nav-link:nth-child(1)").classList.remove("active");
+}
+
+// Função que será chamada para excluir um pet
+export function excluirPet(index) {
+    const pets = getAllPets();
+    const petId = pets[index].id;
+    deletePet(petId);
+    mostrarPets();
 }
