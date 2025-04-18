@@ -47,6 +47,7 @@ export function mostrarPets() {
  */
 export function mostrarFormulario(pet = {}, petId = null) {
   const isEditando = petId !== null;
+
   document.getElementById('area-troca').innerHTML = `
     <form id="petForm">
       <input type="hidden" id="petId" value="${petId || ''}">
@@ -97,9 +98,38 @@ export function mostrarFormulario(pet = {}, petId = null) {
     </form>
   `;
 
-  document
-    .getElementById('petForm')
-    .addEventListener('submit', e => salvarPet(e));
+  const form = document.getElementById('petForm');
+  form.addEventListener('submit', e => {
+    const camposRequeridos = form.querySelectorAll('[required]');
+    let formValido = true;
+
+    camposRequeridos.forEach(campo => {
+      console.log(campo.value.trim());
+    });
+
+    camposRequeridos.forEach(campo => {
+      if (!campo.value.trim()) {
+        campo.classList.add('is-invalid');
+        formValido = false;
+      } else {
+        campo.classList.remove('is-invalid');
+      }
+    });
+
+    if (!formValido) {
+      e.preventDefault();
+      return;
+    }
+
+    salvarPet(e);
+  });
+
+  const camposRequeridos = form.querySelectorAll('[required]');
+  camposRequeridos.forEach(campo => {
+    campo.addEventListener('input', function () {
+      this.classList.remove('is-invalid');
+    });
+  });
 
   if (isEditando && document.getElementById('btnCancelar')) {
     document.getElementById('btnCancelar').addEventListener('click', () => {
@@ -116,15 +146,15 @@ export function mostrarFormulario(pet = {}, petId = null) {
 
 /**
  * Salva os dados do pet (novo ou editado)
- * @param {Event} e - Evento de submissão do formulário
+ * @param {Event} e - Evento de submit do formulário
  */
 export function salvarPet(e) {
   e.preventDefault();
   const petId = document.getElementById('petId').value;
   const nome = document.getElementById('nome').value;
   const tipo = document.getElementById('tipo').value;
-  const especie = document.getElementById('especie').value;
-  const raca = document.getElementById('raca').value;
+  const especie = document.getElementById('especie')?.value || '';
+  const raca = document.getElementById('raca')?.value || '';
   const idade = parseInt(document.getElementById('idade').value);
   const dono = document.getElementById('dono').value;
 
