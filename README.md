@@ -68,6 +68,27 @@ Este é o front-end para a aplicação de gerenciamento de uma clínica veterin�
 4. Abra o arquivo `index.html` em um navegador
 5. Certifique-se de que os arquivos **CSS** e **JS** estão carregando corretamente
 
+### 📡 Servidor de Desenvolvimento (Opcional)
+
+Como alternativa para rodar o projeto, você pode utilizar o servidor HTTP embutido do Python:
+
+**Pré-requisitos:**
+- Python 3.7 ou superior instalado
+
+**Passos:**
+1. Abra o terminal na pasta do projeto
+2. Execute o comando:
+   ```bash
+   python -m http.server 3000 --bind 127.0.0.1
+   ```
+3. Acesse http://localhost:3000 no seu navegador
+4. Para parar o servidor, pressione Ctrl+C no terminal
+
+Esta é uma alternativa caso não queira abrir o arquivo index.html diretamente ou usar o Live Server do VS Code. Além disso, rodando com o python ele oferece:
+- Logs de acesso para debug
+- Porta configurável
+- Não requer extensões do VS Code
+
 ## 📌 Próximos Passos
 
 - Implementar o **backend** em Java
