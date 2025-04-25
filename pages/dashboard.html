@@ -1,86 +1,84 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon" />
     <title>Dashboard - Clínica Veterinária</title>
-    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/css/styles.css"> <!-- Custom styles -->
-    <script src="../assets/js/jquery.min.js"></script>
-    <script src="../assets/js/main.js" defer></script>
-</head>
-<body>
-    <!-- Navbar Component -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+
+  <body>
     <div id="navbar"></div>
 
     <div class="container mt-5">
-        <h1>Dashboard</h1>
-        <p>Bem-vindo ao painel de controle da Clínica Veterinária!</p>
+      <h1>Dashboard</h1>
+      <p>Bem-vindo ao painel de controle da Clínica Veterinária!</p>
 
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Total de Pets</h5>
-                        <p class="card-text" id="totalPets">0</p>
-                    </div>
-                </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Total de Pets</h5>
+              <p class="card-text" id="totalPets">0</p>
             </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Total de Consultas</h5>
-                        <p class="card-text" id="totalConsultas">0</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Total de Usuários</h5>
-                        <p class="card-text" id="totalUsuarios">0</p>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Total de Consultas</h5>
+              <p class="card-text" id="totalConsultas">0</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Total de Usuários</h5>
+              <p class="card-text" id="totalUsuarios">0</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <h2 class="mt-5">Últimas Consultas</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Data</th>
-                    <th>Pet</th>
-                    <th>Veterinário</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody id="consultasList">
-                <tr>
-                    <td colspan="4" class="text-center">Nenhuma consulta agendada.</td>
-                </tr>
-            </tbody>
-        </table>
+      <h2 class="mt-5">Últimas Consultas</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Pet</th>
+            <th>Veterinário</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="consultasList">
+          <tr>
+            <td colspan="4" class="text-center">Nenhuma consulta agendada.</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-    <!-- Footer Component -->
     <div id="footer"></div>
 
+    <script type="module" src="../routers/router.js"></script>
+    <script type="module" src="../main.js"></script>
+    <script type="module" src="../concepts/navegacao/navbar.js"></script>
+    <script
+      type="module"
+      src="../concepts/dashdoard/contexts/controleDashboard.js"
+    ></script>
+    <script type="module" src="../concepts/footer/footer.js"></script>
+    <script src="../assets/js/jquery-3.7.1.min.js"></script>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Load Navbar and Footer
-        $(function() {
-            $("#navbar").load("components/navbar.html");
-            $("#footer").load("components/footer.html");
-        });
+      function loadDashboardData() {}
 
-        // Fetch and display data for the dashboard
-        function loadDashboardData() {
-            // Placeholder for fetching data logic
-            // Example: Fetch total pets, consultas, and usuarios from the API
-        }
-
-        $(document).ready(function() {
-            loadDashboardData();
-        });
+      $(document).ready(function () {
+        loadDashboardData();
+      });
     </script>
-</body>
+  </body>
 </html>
