@@ -104,10 +104,6 @@ export function mostrarFormulario(pet = {}, petId = null) {
     let formValido = true;
 
     camposRequeridos.forEach(campo => {
-      console.log(campo.value.trim());
-    });
-
-    camposRequeridos.forEach(campo => {
       if (!campo.value.trim()) {
         campo.classList.add('is-invalid');
         formValido = false;
