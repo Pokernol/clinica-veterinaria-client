@@ -44,8 +44,6 @@ function mostrarUltimosPets(pets) {
 
   const ultimosPets = petsSorted.slice(0, 5);
 
-  console.log('Últimos pets cadastrados:', ultimosPets);
-
   const tabelaHTML = `
     <h2 class="mt-4">Últimos Pets Cadastrados</h2>
     <table class="table">

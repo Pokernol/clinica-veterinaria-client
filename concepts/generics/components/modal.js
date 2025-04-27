@@ -47,3 +47,5 @@ function showModal(
 
   if (initCallback) initCallback();
 }
+
+export { showModal };

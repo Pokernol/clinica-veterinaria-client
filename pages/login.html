@@ -17,90 +17,31 @@
     <div
       class="container d-flex justify-content-center align-items-center vh-100"
     >
-      <div class="card p-4 shadow-lg w-100" style="max-width: 550px">
-        <h2 class="text-center mb-4">Login</h2>
-        <form id="loginForm">
-          <div class="mb-3">
-            <label for="email" class="form-label">Email:</label>
-            <input
-              type="email"
-              class="form-control"
-              id="email"
-              placeholder="exemplo@dominio.com"
-              required
-              maxlength="50"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">Senha:</label>
-            <input
-              type="password"
-              class="form-control"
-              id="password"
-              placeholder="Digite sua senha"
-              required
-              minlength="8"
-              maxlength="20"
-            />
-          </div>
-          <button type="submit" class="btn btn-primary w-100">Entrar</button>
-        </form>
-        <div class="text-center mt-3">
-          <a href="#" id="forgot-password-link">Esqueceu a senha?</a>
-        </div>
-      </div>
+      <div
+        class="card p-4 shadow-lg w-100"
+        style="max-width: 550px"
+        id="auth-container"
+      ></div>
     </div>
 
     <div id="modal"></div>
     <div id="footer"></div>
 
-    <script type="module" src="../routers/router.js"></script>
+    <script type="module" src="../routers/router.js" defer></script>
     <script type="module" src="../main.js"></script>
     <script type="module" src="../concepts/navegacao/navbar.js"></script>
     <script
       type="module"
       src="../concepts/generics/components/modal.js"
+      defer
+    ></script>
+    <script
+      type="module"
+      src="../concepts/login/components/login.js"
+      defer
     ></script>
     <script type="module" src="../concepts/footer/footer.js"></script>
     <script src="../assets/js/jquery-3.7.1.min.js"></script>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-      document
-        .getElementById('forgot-password-link')
-        .addEventListener('click', function (e) {
-          e.preventDefault();
-          const titleModal = 'Recuperar Senha';
-          const bodyModal =
-            '<p>Digite seu email para receber um link de redefinição de senha.</p>' +
-            '<input type="email" class="form-control" id="forgotPasswordEmail" placeholder="Digite seu email" required>';
-          const buttonModal = 'Enviar';
-          const callbackModal = function () {
-            const emailInput = document.getElementById('forgotPasswordEmail');
-            const email = emailInput.value;
-            if (email) {
-              document.getElementById('loadingSpinner').style.display = 'block';
-              setTimeout(() => {
-                document.getElementById('loadingSpinner').style.display =
-                  'none';
-                alert('Link de recuperação enviado para: ' + email);
-              }, 2000);
-            }
-          };
-          const initCallback = function () {
-            setTimeout(() => {
-              document.getElementById('forgotPasswordEmail').focus();
-            }, 500);
-          };
-
-          showModal(
-            titleModal,
-            bodyModal,
-            buttonModal,
-            callbackModal,
-            initCallback
-          );
-        });
-    </script>
   </body>
 </html>

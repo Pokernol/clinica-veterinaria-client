@@ -6,7 +6,12 @@ import {
   updatePet,
 } from '../../../api/pets.js';
 
-export function mostrarPets() {
+/**
+ * Exibe a lista de pets cadastrados
+ *
+ * @returns {void}
+ */
+function mostrarPets() {
   const pets = getAllPets();
   let html = '';
 
@@ -22,17 +27,31 @@ export function mostrarPets() {
     html = '<ul class="list-group">';
     pets.forEach((pet, index) => {
       html += `
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          <div>
-            <strong>${pet.nome}</strong> (${pet.tipo}) - ${pet.idade} anos<br>
-            <small class="text-muted">Dono(a): ${pet.dono}</small>
-          </div>
-          <div>
-            <button class="btn btn-sm btn-primary me-2" onclick="window.editarPet('${pet.id}')">Editar</button>
-            <button class="btn btn-sm btn-danger" onclick="window.excluirPet('${pet.id}')">Excluir</button>
-          </div>
-        </li>
-      `;
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <div>
+        <strong>${pet.nome}</strong> (${pet.tipo}) - ${pet.idade} anos<br>
+        ${
+          pet.especie
+            ? `<span class="text-muted">Espécie: ${pet.especie}</span><br>`
+            : ''
+        }
+        ${
+          pet.raca
+            ? `<span class="text-muted">Raça: ${pet.raca}</span><br>`
+            : ''
+        }
+        <small class="text-muted">Dono(a): ${pet.dono}</small>
+      </div>
+      <div>
+        <button class="btn btn-sm btn-primary me-2" onclick="window.editarPet('${
+          pet.id
+        }')">Editar</button>
+        <button class="btn btn-sm btn-danger" onclick="window.excluirPet('${
+          pet.id
+        }')">Excluir</button>
+      </div>
+    </li>
+  `;
     });
     html += '</ul>';
   }
@@ -45,7 +64,7 @@ export function mostrarPets() {
  * @param {Object} pet - Objeto contendo dados do pet (opcional)
  * @param {string} petId - ID do pet (opcional, para edição)
  */
-export function mostrarFormulario(pet = {}, petId = null) {
+function mostrarFormulario(pet = {}, petId = null) {
   const isEditando = petId !== null;
 
   document.getElementById('area-troca').innerHTML = `
@@ -65,13 +84,13 @@ export function mostrarFormulario(pet = {}, petId = null) {
       </div>
       <div class="mb-3">
         <label class="form-label">Espécie (ex: mamífero, ave)</label>
-        <input type="text" class="form-control" id="tipo" value="${
+        <input type="text" class="form-control" id="especie" value="${
           pet.especie || ''
         }">
       </div>
       <div class="mb-3">
         <label class="form-label">Raça (ex: bulldog, siamês)</label>
-        <input type="text" class="form-control" id="tipo" value="${
+        <input type="text" class="form-control" id="raca" value="${
           pet.raca || ''
         }">
       </div>
@@ -144,7 +163,7 @@ export function mostrarFormulario(pet = {}, petId = null) {
  * Salva os dados do pet (novo ou editado)
  * @param {Event} e - Evento de submit do formulário
  */
-export function salvarPet(e) {
+function salvarPet(e) {
   e.preventDefault();
   const petId = document.getElementById('petId').value;
   const nome = document.getElementById('nome').value;
@@ -181,7 +200,7 @@ export function salvarPet(e) {
  * Prepara o formulário para edição de um pet
  * @param {string} petId - ID do pet a ser editado
  */
-export function editarPet(petId) {
+function editarPet(petId) {
   const pet = getPetById(petId);
   if (pet && !pet.message) {
     mostrarFormulario(pet, petId);
@@ -200,7 +219,7 @@ export function editarPet(petId) {
  * Remove um pet da lista
  * @param {string} petId - ID do pet a ser removido
  */
-export function excluirPet(petId) {
+function excluirPet(petId) {
   if (confirm('Tem certeza que deseja excluir este pet?')) {
     deletePet(petId);
     mostrarPets();
@@ -210,10 +229,19 @@ export function excluirPet(petId) {
 /**
  * Muda para a aba de cadastro
  */
-export function trocarParaCadastro() {
+function trocarParaCadastro() {
   document.querySelector('.nav-link[data-id="cadastro"]').click();
 }
 
 window.trocarParaCadastro = trocarParaCadastro;
 window.editarPet = editarPet;
 window.excluirPet = excluirPet;
+
+export {
+  editarPet,
+  excluirPet,
+  mostrarFormulario,
+  mostrarPets,
+  salvarPet,
+  trocarParaCadastro,
+};
