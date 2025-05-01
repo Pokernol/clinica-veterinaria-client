@@ -1,74 +1,85 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const currentPath = window.location.pathname;
+class Navbar extends HTMLElement {
+  connectedCallback() {
+    this.render();
+    this.attachNavigationEvents();
+  }
 
-  const links = [
-    { href: '/', label: 'Início', disable: false },
-    { href: '/pages/dashboard.html', label: 'Dashboard', disable: false },
-    { href: '/pages/consultas.html', label: 'Consultas', disable: true },
-    { href: '/pages/pet.html', label: 'Pets', disable: false },
-    { href: '/pages/users.html', label: 'Usuários', disable: true },
-  ];
+  render() {
+    const currentPath =
+      document.querySelector('router-component')?.currentPage || 'home';
 
-  const dropdownActions = [
-    { href: '#', label: 'Settings', disable: true },
-    { href: '#', label: 'Profile', disable: true },
-    { divider: true },
-    { href: '#', label: 'Cadastrar', disable: true },
-    { href: '/pages/login.html', label: 'Login', disable: false },
-    { href: '#', label: 'Deslogar', disable: true },
-  ];
+    const links = [
+      { page: 'home', label: 'Início' },
+      { page: 'dashboard', label: 'Dashboard' },
+      { page: 'consultas', label: 'Consultas', disable: true },
+      { page: 'pet', label: 'Pets' },
+      { page: 'users', label: 'Usuários', disable: true },
+    ];
 
-  const navLinksHTML = links
-    .map(({ href, label, disable }) => {
-      const isActive = currentPath.endsWith(href);
-      const isDisabled = disable;
+    const dropdownActions = [
+      { label: 'Settings', disable: true },
+      { label: 'Profile', disable: true },
+      { divider: true },
+      { label: 'Cadastrar', disable: true },
+      { page: 'login', label: 'Login' },
+      { label: 'Deslogar', disable: true },
+    ];
 
-      const classes = [
-        'nav-link',
-        isActive ? 'bg-white bg-opacity-10 text-white rounded' : 'text-white',
-        isDisabled ? 'disabled text-white-50' : '',
-      ]
-        .join(' ')
-        .trim();
+    const navLinksHTML = links
+      .map(({ page, label, disable }) => {
+        const isActive = currentPath === page;
+        const classes = [
+          'nav-link',
+          isActive ? 'bg-white bg-opacity-10 text-white rounded' : 'text-white',
+          disable ? 'disabled text-white-50' : '',
+        ]
+          .join(' ')
+          .trim();
 
-      const extraAttrs = isDisabled ? 'tabindex="-1" aria-disabled="true"' : '';
+        const extraAttrs = disable
+          ? 'tabindex="-1" aria-disabled="true"'
+          : `data-page="${page}"`;
 
-      const safeHref = isDisabled ? 'javascript:void(0)' : href;
+        return `
+        <li class="nav-item ps-2">
+          <a href="#" class="${classes}" ${extraAttrs}>
+            ${label}
+          </a>
+        </li>
+      `;
+      })
+      .join('');
 
-      return `
-      <li class="nav-item ps-2">
-        <a href="${safeHref}" class="${classes}" ${extraAttrs}>
-          ${label}
-        </a>
-      </li>
-    `;
-    })
-    .join('');
+    const dropdownHTML = dropdownActions
+      .map(action => {
+        if (action?.divider) {
+          return `<li><hr class="dropdown-divider" /></li>`;
+        }
 
-  const dropdownHTML = dropdownActions
-    .map(action =>
-      action?.divider
-        ? `<li><hr class="dropdown-divider" /></li>`
-        : `<li><a class="dropdown-item ${
-            action.disable ? 'disabled' : ''
-          }" href="${action.href}">${action.label}</a></li>`
-    )
-    .join('');
+        const attrs =
+          action.page && !action.disable
+            ? `href="#" data-page="${action.page}"`
+            : 'href="#"';
 
-  const navbarHTML = `
+        const disabledClass = action.disable ? 'disabled' : '';
+
+        return `<li><a class="dropdown-item ${disabledClass}" ${attrs}>${action.label}</a></li>`;
+      })
+      .join('');
+
+    this.innerHTML = `
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a href="/" class="navbar-brand">
-          <img src="../assets/img/logo.svg" alt="Logo da Clínica Veterinária" class="logo" />
+        <a class="navbar-brand" href="#" data-page="home">
+          <img src="./assets/img/logo.svg" alt="Logo da Clínica" class="logo" />
         </a>
         <div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-          <span class="navbar-toggler-icon"></span>
+          <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+            <span class="navbar-toggler-icon"></span>
           </button>
-
-          <div class="offcanvas offcanvas-end offcanvas-lg text-bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas offcanvas-end text-bg-dark" id="offcanvasNavbar">
             <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+              <h5 class="offcanvas-title">Menu</h5>
               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
             </div>
             <div class="offcanvas-body">
@@ -89,6 +100,30 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
     </nav>
   `;
+  }
 
-  document.getElementById('navbar').innerHTML = navbarHTML;
-});
+  attachNavigationEvents() {
+    const links = this.querySelectorAll('[data-page]');
+
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        if (link.classList.contains('disabled')) return; // evita navegar se estiver desabilitado
+        const page = link.dataset.page;
+        const router = document.querySelector('router-component');
+        router.navigate(page);
+      });
+    });
+  }
+}
+
+customElements.define('navbar-component', Navbar);
+
+/*
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  <li class="nav-item"><a href="#" class="nav-link text-white" data-page="dashboard">Dashboard</a></li>
+  <li class="nav-item"><a href="#" class="nav-link text-white" data-page="appointments">Consultas</a></li>
+  <li class="nav-item"><a href="#" class="nav-link text-white" data-page="profile">Perfil</a></li>
+  <li class="nav-item"><a href="#" class="nav-link text-white" data-page="login">Login</a></li>
+</ul>
+*/
