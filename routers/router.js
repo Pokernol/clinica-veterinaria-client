@@ -1,17 +1,16 @@
-import '../concepts/footer/footer.js';
 import '../concepts/navegacao/navbar.js';
+import '../pages/pet.js';
+import '../concepts/footer/footer.js';
 
 class RouterComponent extends HTMLElement {
   connectedCallback() {
     this.render();
 
-    // Roteamento inicial
-    const initialPage = window.location.pathname.slice(1) || 'home';
+    const initialPage = window.location.pathname.slice(1) || '';
     this.updatePage(initialPage);
 
-    // Ouvir evento de voltar/avançar
     window.addEventListener('popstate', event => {
-      const pageName = event.state?.page || 'home';
+      const pageName = event.state?.page || '';
       this.updatePage(pageName);
     });
   }
@@ -22,12 +21,13 @@ class RouterComponent extends HTMLElement {
         <navbar-component></navbar-component>
 
         <main class="p-4 flex-grow-1">
-          <div class="page" data-page="home"><h1>Bem-vindo à Clínica Veterinária</h1></div>
+          <div class="page" data-page=""><h1>Bem-vindo à Clínica Veterinária</h1></div>
           <div class="page" data-page="login"><h1>Página de Login</h1></div>
           <div class="page" data-page="register"><h1>Página de Registro</h1></div>
           <div class="page" data-page="dashboard"><h1>Dashboard</h1></div>
           <div class="page" data-page="profile"><h1>Perfil</h1></div>
           <div class="page" data-page="appointments"><h1>Consultas</h1></div>
+          <div class="page" data-page="pets"><pets-page></pets-page></div>
           <div class="page" data-page="not-found" class="d-none"><h1>Página não encontrada</h1></div>
         </main>
 

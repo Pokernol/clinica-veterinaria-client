@@ -6,13 +6,13 @@ class Navbar extends HTMLElement {
 
   render() {
     const currentPath =
-      document.querySelector('router-component')?.currentPage || 'home';
+      document.querySelector('router-component')?.currentPage || '';
 
     const links = [
-      { page: 'home', label: 'Início' },
+      { page: '', label: 'Início' },
       { page: 'dashboard', label: 'Dashboard' },
       { page: 'consultas', label: 'Consultas', disable: true },
-      { page: 'pet', label: 'Pets' },
+      { page: 'pets', label: 'Pets' },
       { page: 'users', label: 'Usuários', disable: true },
     ];
 
@@ -70,7 +70,7 @@ class Navbar extends HTMLElement {
     this.innerHTML = `
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#" data-page="home">
+        <a class="navbar-brand" href="#" data-page="">
           <img src="./assets/img/logo.svg" alt="Logo da Clínica" class="logo" />
         </a>
         <div>
@@ -108,7 +108,7 @@ class Navbar extends HTMLElement {
     links.forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
-        if (link.classList.contains('disabled')) return; // evita navegar se estiver desabilitado
+        if (link.classList.contains('disabled')) return;
         const page = link.dataset.page;
         const router = document.querySelector('router-component');
         router.navigate(page);
@@ -118,12 +118,3 @@ class Navbar extends HTMLElement {
 }
 
 customElements.define('navbar-component', Navbar);
-
-/*
-<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-  <li class="nav-item"><a href="#" class="nav-link text-white" data-page="dashboard">Dashboard</a></li>
-  <li class="nav-item"><a href="#" class="nav-link text-white" data-page="appointments">Consultas</a></li>
-  <li class="nav-item"><a href="#" class="nav-link text-white" data-page="profile">Perfil</a></li>
-  <li class="nav-item"><a href="#" class="nav-link text-white" data-page="login">Login</a></li>
-</ul>
-*/
