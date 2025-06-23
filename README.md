@@ -30,6 +30,14 @@ Este é o front-end para a aplicação de gerenciamento de uma clínica veterin�
 │── index.html
 ```
 
+## 📝 Documentação
+
+Para garantir a qualidade e padronização do código, siga nossas diretrizes de desenvolvimento:
+
+- [Boas Práticas](doc/best-practices.md) - Guia completo com convenções de código, padrões de nomenclatura, organização de arquivos e fluxo de trabalho Git
+
+Estas diretrizes ajudam a manter o código consistente e de fácil manutenção para todos os colaboradores do projeto.
+
 ## 🚀 Tecnologias Utilizadas
 
 - **HTML5** para estruturação das páginas
