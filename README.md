@@ -2,7 +2,7 @@
 
 Este é o front-end para a aplicação de gerenciamento de uma clínica veterinária. Ele utiliza **HTML, CSS (Bootstrap), JavaScript e jQuery** para criar um sistema funcional e organizado.
 
-## 📂 Estrutura do Projeto
+## 📂 Estrutura do Projeto 1
 
 ```plaintext
 /meu-projeto
@@ -12,13 +12,13 @@ Este é o front-end para a aplicação de gerenciamento de uma clínica veterin�
 │   ├── pets.js             → Cadastro e gerenciamento de pets
 │   ├── consultas.js        → Agendamentos, diagnósticos
 │   ├── receitas.js         → Controle de medicamentos e prescrições
-│── /assets                 
+│── /assets
 │   ├── /css              →🔹Arquivos de estilo (Bootstrap, estilos personalizados)
 │   ├── /js                 → Arquivos JavaScript
-│   │   ├── main.js           
-│   │   ├── navbar.js            
-│   │   ├── router.js         
-│   │   ├── jquery.min.js  
+│   │   ├── main.js
+│   │   ├── navbar.js
+│   │   ├── router.js
+│   │   ├── jquery.min.js
 │   ├── /img                → Imagens do sistema
 │── /components           →🔹Componentes reutilizáveis
 │   ├── navbar.html
@@ -59,11 +59,11 @@ Este é o front-end para a aplicação de gerenciamento de uma clínica veterin�
 
 2. Baixe o arquivo **jQuery** e coloque na pasta **assets/js**
 
-    [https://code.jquery.com/jquery-3.7.1.min.js](https://code.jquery.com/jquery-3.7.1.min.js)
+   [https://code.jquery.com/jquery-3.7.1.min.js](https://code.jquery.com/jquery-3.7.1.min.js)
 
 3. Baixe o arquivo **Bootstrap** e coloque na pasta **assets/css** e no **assets/js**: Diferente do **jQuery**, o **Bootstrap** possui 2 arquivos, são eles o `bootstrap.min.css` e o `bootstrap.bundle.min.js`.
 
-    [https://getbootstrap.com/docs/5.3/getting-started/download/](https://getbootstrap.com/docs/5.3/getting-started/download/)
+   [https://getbootstrap.com/docs/5.3/getting-started/download/](https://getbootstrap.com/docs/5.3/getting-started/download/)
 
 4. Abra o arquivo `index.html` em um navegador
 5. Certifique-se de que os arquivos **CSS** e **JS** estão carregando corretamente
@@ -73,18 +73,23 @@ Este é o front-end para a aplicação de gerenciamento de uma clínica veterin�
 Como alternativa para rodar o projeto, você pode utilizar o servidor HTTP embutido do Python:
 
 **Pré-requisitos:**
+
 - Python 3.7 ou superior instalado
 
 **Passos:**
+
 1. Abra o terminal na pasta do projeto
 2. Execute o comando:
+
    ```bash
    python -m http.server 3000 --bind 127.0.0.1
    ```
-3. Acesse http://localhost:3000 no seu navegador
+
+3. Acesse <http://localhost:3000> no seu navegador
 4. Para parar o servidor, pressione Ctrl+C no terminal
 
 Esta é uma alternativa caso não queira abrir o arquivo index.html diretamente ou usar o Live Server do VS Code. Além disso, rodando com o python ele oferece:
+
 - Logs de acesso para debug
 - Porta configurável
 - Não requer extensões do VS Code
@@ -110,8 +115,9 @@ Esta é uma alternativa caso não queira abrir o arquivo index.html diretamente 
     <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/100011077?v=4" width="100px;" alt="foto do autor"/>
   </a>
 
-  [![Linkedin Badge linktree](https://img.shields.io/badge/-Leonardo_Vinícius-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/leonardo-vin%C3%ADcius25/)](https://www.linkedin.com/in/leonardo-vin%C3%ADcius25/)
-  [![Linkedin Badge linkedin](https://img.shields.io/badge/-Leonardo_Vinícius-39E09B?style=flat-square&logo=linktree&logoColor=white&link=https://linktr.ee/pokernol)](https://linktr.ee/pokernol)
+[![Linkedin Badge linktree](https://img.shields.io/badge/-Leonardo_Vinícius-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/leonardo-vin%C3%ADcius25/)](https://www.linkedin.com/in/leonardo-vin%C3%ADcius25/)
+[![Linkedin Badge linkedin](https://img.shields.io/badge/-Leonardo_Vinícius-39E09B?style=flat-square&logo=linktree&logoColor=white&link=https://linktr.ee/pokernol)](https://linktr.ee/pokernol)
+
 </div>
 
 ## Feedback
